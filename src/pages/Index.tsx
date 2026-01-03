@@ -10,29 +10,32 @@ import {
   AlertCircle, FileText, Cog, Headphones, Award, 
   Users, HelpCircle, ExternalLink, ChevronRight, 
   ChevronLeft, Plus, Trash2, Wind, Droplet, Link, 
-  Moon, Sun, ArrowUp, Navigation, Check, Truck as TruckIcon,
+  Moon, Sun, ArrowUp, Navigation as NavigationIcon, Check, Truck as TruckIcon,
   MessageSquare, Home, ShoppingBag, Bell, AlertTriangle,
   Award as AwardIcon, Users as UsersIcon, ChevronUp,
   Shield as ShieldIcon, Clock as ClockIcon
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import Navigation from '@/components/landing/Navigation';
-import Hero from '@/components/landing/Hero';
+import NavigationBar from '@/components/landing/Navigation';
+import HeroSection from '@/components/landing/Hero';
 import Partners from '@/components/landing/Partners';
 import About from '@/components/landing/About';
 import Services from '@/components/landing/Services';
-import Products from '@/components/landing/Products';
+import ProductsSection from '@/components/landing/Products';
 import WhyChooseUs from '@/components/landing/WhyChooseUs';
+import Portfolio from '@/components/landing/Portifolio';
 import Testimonials from '@/components/landing/Testimonials';
 import Contact from '@/components/landing/Contact';
 import Footer from '@/components/landing/Footer';
 import WhatsAppButton from '@/components/landing/WhatsAppButton';
 
-// Supabase Client
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Supabase Client (optional - gracefully handles missing env vars)
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const supabase = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
 
 // Types
 export interface SparePart {
@@ -215,12 +218,17 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Fetch data from Supabase
+  // Fetch data from Supabase (if configured)
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
+    if (!supabase) {
+      setIsLoading(false);
+      return;
+    }
+
     try {
       setIsLoading(true);
       
@@ -244,21 +252,21 @@ const Index = () => {
       if (servicesError) throw servicesError;
 
       if (partsData) {
-        const spareParts: SparePart[] = partsData.map(part => ({
+        const spareParts: SparePart[] = partsData.map((part: Record<string, unknown>) => ({
           ...part,
-          key_features: part.key_features || [],
-          applications: part.applications || [],
-          compatible_with: part.compatible_with || [],
-          additional_images: part.additional_images || [],
-          part_number: part.model,
-          compatibility: part.compatible_with || []
-        }));
+          key_features: (part.key_features as string[]) || [],
+          applications: (part.applications as string[]) || [],
+          compatible_with: (part.compatible_with as string[]) || [],
+          additional_images: (part.additional_images as string[]) || [],
+          part_number: part.model as string,
+          compatibility: (part.compatible_with as string[]) || []
+        })) as SparePart[];
         setParts(spareParts);
         setFilteredParts(spareParts);
       }
 
       if (servicesData) {
-        setServices(servicesData);
+        setServices(servicesData as Service[]);
       }
 
     } catch (error) {
@@ -395,7 +403,7 @@ const Index = () => {
 
   // Compatibility checker
   const checkCompatibility = async () => {
-    if (!compatibilityData.model) return;
+    if (!compatibilityData.model || !supabase) return;
 
     try {
       const { data, error } = await supabase
@@ -408,15 +416,15 @@ const Index = () => {
       if (error) throw error;
 
       if (data) {
-        const compatibleSpareParts: SparePart[] = data.map(part => ({
+        const compatibleSpareParts: SparePart[] = data.map((part: Record<string, unknown>) => ({
           ...part,
-          key_features: part.key_features || [],
-          applications: part.applications || [],
-          compatible_with: part.compatible_with || [],
-          additional_images: part.additional_images || [],
-          part_number: part.model,
-          compatibility: part.compatible_with || []
-        }));
+          key_features: (part.key_features as string[]) || [],
+          applications: (part.applications as string[]) || [],
+          compatible_with: (part.compatible_with as string[]) || [],
+          additional_images: (part.additional_images as string[]) || [],
+          part_number: part.model as string,
+          compatibility: (part.compatible_with as string[]) || []
+        })) as SparePart[];
         setCompatibleParts(compatibleSpareParts);
         setShowCompatibilityResults(true);
       }
@@ -429,6 +437,25 @@ const Index = () => {
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!supabase) {
+      // Fallback - just show success message without DB
+      setContactForm({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        subject: '',
+        message: '',
+        request_type: 'parts_inquiry'
+      });
+      setQuoteItems([]);
+      setShowQuoteModal(false);
+      alert(language === 'en' 
+        ? 'Thank you! We\'ll respond within 2 hours.' 
+        : 'Asante! Tutajibu ndani ya masaa 2.');
+      return;
+    }
+    
     try {
       const { data, error } = await supabase
         .from('contact_submissions')
@@ -436,7 +463,8 @@ const Index = () => {
           ...contactForm,
           submission_date: new Date().toISOString(),
           created_at: new Date().toISOString()
-        }]);
+        }])
+        .select();
 
       if (error) throw error;
 
@@ -447,7 +475,7 @@ const Index = () => {
         const { error: quoteError } = await supabase
           .from('quotes')
           .insert([{
-            contact_submission_id: data[0].id,
+            contact_submission_id: (data[0] as Record<string, unknown>).id,
             quote_number: quoteNumber,
             amount: quoteItems.reduce((sum, item) => sum + ((item.price || 0) * item.quantity), 0),
             status: 'pending',
@@ -574,31 +602,14 @@ const Index = () => {
       
       {/* Navigation */}
       <div ref={heroRef}>
-        <Navigation
-          language={language}
-          toggleLanguage={() => setLanguage(language === 'en' ? 'sw' : 'en')}
-          darkMode={darkMode}
-          toggleDarkMode={() => setDarkMode(!darkMode)}
-          quoteItems={quoteItems}
-          onQuoteClick={() => setShowQuoteModal(true)}
-          onSearchClick={() => setShowSearchModal(true)}
-          onWhatsAppClick={() => window.open('https://wa.me/254718234222', '_blank')}
-          scrollToSection={scrollToSection}
-        />
+        <NavigationBar />
       </div>
 
       {/* Hero Section */}
-      <Hero
-        language={language}
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        onSearch={() => setShowSearchModal(true)}
-        onBrowseParts={() => scrollToSection('parts')}
-        onCheckCompatibility={() => scrollToSection('compatibility')}
-      />
+      <HeroSection />
 
       {/* Trust Badges */}
-      <Partners language={language} />
+      <Partners />
 
       {/* Categories */}
       <div ref={partsRef} className="py-20 lg:py-32">
@@ -653,16 +664,7 @@ const Index = () => {
             {t.featured.subtitle}
           </p>
 
-          <Products
-            parts={currentParts}
-            isLoading={isLoading}
-            language={language}
-            onAddToQuote={addToQuote}
-            onViewAll={() => {
-              setSelectedCategory('all');
-              scrollToSection('parts');
-            }}
-          />
+          <ProductsSection />
         </div>
       </div>
 
@@ -804,7 +806,7 @@ const Index = () => {
       </div>
 
       {/* Why Choose Us */}
-      <WhyChooseUs language={language} />
+      <WhyChooseUs />
 
       {/* Full Catalog with Filters */}
       <div className="py-20 bg-gray-50 dark:bg-gray-800/50">
@@ -1136,21 +1138,24 @@ const Index = () => {
         </div>
       </div>
 
+      {/* Portfolio */}
+      <Portfolio />
+
       {/* Testimonials */}
       <div ref={testimonialsRef} className="py-20 bg-gray-50 dark:bg-gray-800/50">
-        <Testimonials language={language} />
+        <Testimonials />
       </div>
 
       {/* Contact Section */}
       <div ref={contactRef}>
-        <Contact language={language} />
+        <Contact />
       </div>
 
       {/* Footer */}
-      <Footer language={language} onQuoteClick={() => setShowQuoteModal(true)} />
+      <Footer />
 
       {/* WhatsApp Button */}
-      <WhatsAppButton language={language} />
+      <WhatsAppButton />
 
       {/* Back to Top Button */}
       {showBackToTop && (
@@ -1169,7 +1174,7 @@ const Index = () => {
         className="fixed bottom-20 right-6 md:hidden bg-blue-600 dark:bg-blue-500 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors z-40"
         aria-label="Quick navigation"
       >
-        <Navigation size={24} />
+        <NavigationIcon size={24} />
       </button>
 
       {/* Quote Request Modal */}
