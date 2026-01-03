@@ -23,8 +23,19 @@ const translations = {
     // Hero
     'hero.headline': 'Wings Engineering Services Ltd – Reliable Mechanical & Electrical Engineering in Thika',
     'hero.subheadline': 'Generators • Engines • Spare Parts • Installation • Maintenance',
+    'hero.description': 'Trusted technical solutions for industry and commerce in Thika and Nairobi County. Lister Petter specialists with genuine OEM parts.',
+    'hero.cta1': 'Get a Quote',
+    'hero.cta2': 'Call +254 718 234 222',
     'hero.cta.quote': 'Get a Quote',
     'hero.cta.call': 'Call +254 718 234 222',
+    'hero.stat1': '15+',
+    'hero.stat1Label': 'Years Experience',
+    'hero.stat2': '500+',
+    'hero.stat2Label': 'Projects Completed',
+    'hero.stat3': '24/7',
+    'hero.stat3Label': 'Emergency Support',
+    'hero.stat4': '100%',
+    'hero.stat4Label': 'Genuine Parts',
     'hero.stats.experience': '15+ Years Experience',
     'hero.stats.projects': '500+ Projects Completed',
     'hero.stats.support': '24/7 Emergency Support',
@@ -36,6 +47,13 @@ const translations = {
     // About
     'about.title': 'About Wings Engineering Services Ltd',
     'about.content': 'Wings Engineering Services Ltd is a Thika-based engineering firm providing mechanical and electrical engineering solutions – from generator sales and servicing, engine spare parts, to installation and project maintenance. With a local presence in Thika, we serve industrial and commercial clients throughout Nairobi County.',
+    'about.content2': 'Our team of experienced technicians specializes in Lister Petter engines and generators, offering genuine spare parts sourcing, professional installation and commissioning, 24/7 emergency breakdown support, preventative maintenance contracts, and custom engine solutions.',
+    'about.feature1': '15+ Years Experience',
+    'about.feature2': 'Genuine Spare Parts',
+    'about.feature3': '24/7 Emergency Support',
+    'about.feature4': 'Lister Petter Specialist',
+    'about.feature5': 'Certified Service Center',
+    'about.feature6': 'Local Kenyan Business',
     'about.features.experience': '15+ Years Experience',
     'about.features.parts': 'Genuine Spare Parts',
     'about.features.support': '24/7 Emergency Support',
@@ -46,6 +64,8 @@ const translations = {
     
     // Services
     'services.title': 'Our Services',
+    'services.subtitle': 'Professional engineering solutions for all your power needs',
+    'services.bookService': 'Book Service',
     'services.sales.name': 'Generator Sales & Hire',
     'services.sales.description': 'New and refurbished diesel generators. Short-term hire and long-term leasing options.',
     'services.repair.name': 'Engine Repair & Spare Parts',
@@ -63,7 +83,12 @@ const translations = {
     
     // Products
     'products.title': 'Featured Products',
+    'products.subtitle': 'Genuine spare parts and equipment in stock',
     'products.viewAll': 'View All Products',
+    'products.requestQuote': 'Request Quote',
+    'products.inStock': 'In Stock',
+    'products.lowStock': 'Low Stock',
+    'products.outOfStock': 'Out of Stock',
     'products.filter.all': 'All',
     'products.filter.generators': 'Generators',
     'products.filter.engines': 'Engines',
@@ -87,8 +112,21 @@ const translations = {
     'why.support.title': '24/7 Support',
     'why.support.description': 'Emergency breakdown response and preventative maintenance packages',
     
+    // Why Us (alternative keys)
+    'whyUs.title': 'Why Choose Wings Engineering',
+    'whyUs.subtitle': 'Experience, trust and reliability you can count on',
+    'whyUs.local.title': 'Local Thika Team',
+    'whyUs.local.description': 'Hands-on technical experience with rapid on-site response',
+    'whyUs.verified.title': 'Verified Legal Presence',
+    'whyUs.verified.description': 'Company listings and court record transparency',
+    'whyUs.genuine.title': 'Genuine Spare Parts',
+    'whyUs.genuine.description': 'Lister Petter specialist - OEM parts only',
+    'whyUs.support.title': '24/7 Support',
+    'whyUs.support.description': 'Emergency breakdown response and preventative maintenance packages',
+    
     // Portfolio
     'portfolio.title': 'Our Projects',
+    'portfolio.subtitle': 'Successful installations and maintenance projects across Kenya',
     'portfolio.project1.title': 'Nairobi Hospital Backup Generator Installation',
     'portfolio.project1.client': 'Major Nairobi Hospital',
     'portfolio.project1.description': '500kVA Lister Petter Genset installation with 3-day completion timeline',
@@ -102,6 +140,7 @@ const translations = {
     
     // Testimonials
     'testimonials.title': 'What Our Clients Say',
+    'testimonials.subtitle': 'Trusted by businesses across East Africa',
     'testimonials.1.quote': '"Wings Engineering provided exceptional service during our emergency generator failure. Their technician arrived within 2 hours and had us back online the same day. Highly professional!"',
     'testimonials.1.name': 'John Kamau',
     'testimonials.1.role': 'Facilities Manager, Thika Manufacturing Ltd.',
@@ -114,10 +153,16 @@ const translations = {
     
     // Contact
     'contact.title': 'Get in Touch',
+    'contact.subtitle': 'Send us a message and we\'ll respond within 24 hours',
     'contact.form.name': 'Name',
     'contact.form.email': 'Email',
     'contact.form.phone': 'Phone',
     'contact.form.company': 'Company',
+    'contact.form.requestType': 'Request Type',
+    'contact.form.requestType.quote': 'Quote',
+    'contact.form.requestType.service': 'Service Booking',
+    'contact.form.requestType.parts': 'Parts Inquiry',
+    'contact.form.requestType.general': 'General',
     'contact.form.type': 'Request Type',
     'contact.form.type.quote': 'Quote',
     'contact.form.type.service': 'Service Booking',
@@ -130,25 +175,31 @@ const translations = {
     'contact.form.contact.email': 'Email',
     'contact.form.contact.whatsapp': 'WhatsApp',
     'contact.form.submit': 'Send Inquiry',
+    'contact.form.submitting': 'Sending...',
+    'contact.form.success': 'Thank you! We\'ll respond within 24 hours.',
     'contact.info.title': 'Contact Information',
     'contact.info.address': 'P.O. Box 4529-01002 Madaraka, Thika, Kenya',
     'contact.info.phone': '+254 718 234 222',
     'contact.info.email': 'sales@wingsengineeringservices.com',
+    'contact.info.hours': 'Mon-Fri 8AM-6PM, Sat 9AM-2PM',
     'contact.info.hours.title': 'Business Hours',
     'contact.info.hours.weekdays': 'Monday-Friday 8AM-6PM',
     'contact.info.hours.saturday': 'Saturday 9AM-2PM',
     'contact.info.hours.sunday': 'Sunday Closed',
+    'contact.info.whatsapp': 'Chat on WhatsApp',
     'contact.success': 'Thank you! We\'ll respond within 24 hours.',
     'contact.error': 'Please fill in all required fields correctly.',
     
     // Footer
     'footer.tagline': 'Powering East Africa\'s Industry',
     'footer.description': 'Your trusted partner for generators, engines, and industrial power solutions across Kenya.',
+    'footer.quickLinks': 'Quick Links',
     'footer.quicklinks': 'Quick Links',
     'footer.contact': 'Contact',
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Service',
     'footer.copyright': '© 2026 Wings Engineering Services Ltd. All rights reserved.',
+    'footer.madeIn': 'Built with ❤️ in Kenya',
     'footer.built': 'Built with ❤️ in Kenya',
     
     // Modals
@@ -175,6 +226,8 @@ const translations = {
     
     // WhatsApp
     'whatsapp.message': 'Hello Wings Engineering, I need assistance with...',
+    'whatsapp.prefilledMessage': 'Hello Wings Engineering, I need assistance with...',
+    'whatsapp.tooltip': 'Chat on WhatsApp',
     
     // Validation
     'validation.required': 'This field is required',
@@ -194,8 +247,19 @@ const translations = {
     // Hero
     'hero.headline': 'Wings Engineering Services Ltd – Huduma za Uhandisi wa Umeme na Mitambo Thika',
     'hero.subheadline': 'Jenereta • Injini • Vipuri • Usakinishaji • Matengenezo',
+    'hero.description': 'Ufumbuzi wa kiufundi unaoaminika kwa viwanda na biashara Thika na Kaunti ya Nairobi. Wataalamu wa Lister Petter wenye vipuri halisi vya OEM.',
+    'hero.cta1': 'Pata Nukuu',
+    'hero.cta2': 'Piga +254 718 234 222',
     'hero.cta.quote': 'Pata Nukuu',
     'hero.cta.call': 'Piga +254 718 234 222',
+    'hero.stat1': '15+',
+    'hero.stat1Label': 'Miaka ya Uzoefu',
+    'hero.stat2': '500+',
+    'hero.stat2Label': 'Miradi Imekamilika',
+    'hero.stat3': '24/7',
+    'hero.stat3Label': 'Usaidizi wa Dharura',
+    'hero.stat4': '100%',
+    'hero.stat4Label': 'Vipuri Halisi',
     'hero.stats.experience': 'Uzoefu wa Zaidi ya Miaka 15',
     'hero.stats.projects': 'Miradi 500+ Imekamilika',
     'hero.stats.support': 'Usaidizi wa Dharura 24/7',
@@ -207,6 +271,13 @@ const translations = {
     // About
     'about.title': 'Kuhusu Wings Engineering Services Ltd',
     'about.content': 'Wings Engineering Services Ltd ni kampuni ya uhandisi yenye makao yake Thika inayotoa ufumbuzi wa uhandisi wa mitambo na umeme – kutoka mauzo ya jenereta na huduma, vipuri vya injini, hadi usakinishaji na matengenezo ya miradi. Kwa uwepo wa ndani Thika, tunahudumia wateja wa viwanda na biashara katika Kaunti yote ya Nairobi.',
+    'about.content2': 'Timu yetu ya mafundi wenye uzoefu inajishughulisha na injini na jenereta za Lister Petter, ikitoa usambazaji wa vipuri halisi, usakinishaji na kuanzishwa kwa kitaalamu, msaada wa dharura wa 24/7, mikataba ya matengenezo ya kuzuia, na ufumbuzi wa injini za kibinafsi.',
+    'about.feature1': 'Uzoefu wa Zaidi ya Miaka 15',
+    'about.feature2': 'Vipuri Halisi',
+    'about.feature3': 'Usaidizi wa Dharura 24/7',
+    'about.feature4': 'Mtaalamu wa Lister Petter',
+    'about.feature5': 'Kituo cha Huduma Kilichothibitishwa',
+    'about.feature6': 'Biashara ya Kenya ya Ndani',
     'about.features.experience': 'Uzoefu wa Zaidi ya Miaka 15',
     'about.features.parts': 'Vipuri Halisi',
     'about.features.support': 'Usaidizi wa Dharura 24/7',
@@ -217,6 +288,8 @@ const translations = {
     
     // Services
     'services.title': 'Huduma Zetu',
+    'services.subtitle': 'Ufumbuzi wa uhandisi wa kitaalamu kwa mahitaji yako yote ya nguvu',
+    'services.bookService': 'Weka Huduma',
     'services.sales.name': 'Mauzo ya Jenereta na Kukodisha',
     'services.sales.description': 'Jenereta mpya za dizeli na zilizorekebishwa. Chaguo la kukodisha muda mfupi na muda mrefu.',
     'services.repair.name': 'Matengenezo ya Injini na Vipuri',
@@ -234,7 +307,12 @@ const translations = {
     
     // Products
     'products.title': 'Bidhaa Maarufu',
+    'products.subtitle': 'Vipuri halisi na vifaa vinapatikana',
     'products.viewAll': 'Tazama Bidhaa Zote',
+    'products.requestQuote': 'Omba Nukuu',
+    'products.inStock': 'Inapatikana',
+    'products.lowStock': 'Inakwisha',
+    'products.outOfStock': 'Haipatikani',
     'products.filter.all': 'Zote',
     'products.filter.generators': 'Jenereta',
     'products.filter.engines': 'Injini',
@@ -258,8 +336,21 @@ const translations = {
     'why.support.title': 'Usaidizi 24/7',
     'why.support.description': 'Jibu la dharura la kuvunjika na vifurushi vya matengenezo ya kuzuia',
     
+    // Why Us (alternative keys)
+    'whyUs.title': 'Kwa Nini Kuchagua Wings Engineering',
+    'whyUs.subtitle': 'Uzoefu, uaminifu na kutegemeka unaweza kutegemea',
+    'whyUs.local.title': 'Timu ya Ndani ya Thika',
+    'whyUs.local.description': 'Uzoefu wa kiufundi wa vitendo na jibu la haraka kwenye tovuti',
+    'whyUs.verified.title': 'Uwepo wa Kisheria Uliohakikiwa',
+    'whyUs.verified.description': 'Orodha ya kampuni na uwazi wa rekodi za mahakama',
+    'whyUs.genuine.title': 'Vipuri Halisi',
+    'whyUs.genuine.description': 'Mtaalamu wa Lister Petter - Vipuri vya OEM pekee',
+    'whyUs.support.title': 'Usaidizi 24/7',
+    'whyUs.support.description': 'Jibu la dharura la kuvunjika na vifurushi vya matengenezo ya kuzuia',
+    
     // Portfolio
     'portfolio.title': 'Miradi Yetu',
+    'portfolio.subtitle': 'Usakinishaji uliofanikiwa na miradi ya matengenezo nchini Kenya',
     'portfolio.project1.title': 'Usakinishaji wa Jenereta ya Backup ya Hospitali ya Nairobi',
     'portfolio.project1.client': 'Hospitali Kuu ya Nairobi',
     'portfolio.project1.description': 'Usakinishaji wa Jenereta ya Lister Petter ya 500kVA na muda wa ukamilifu wa siku 3',
@@ -273,6 +364,7 @@ const translations = {
     
     // Testimonials
     'testimonials.title': 'Wateja Wetu Wanasema Nini',
+    'testimonials.subtitle': 'Wanaoimininka na biashara kote Afrika Mashariki',
     'testimonials.1.quote': '"Wings Engineering ilitoa huduma bora wakati wa kushindwa kwa jenereta yetu ya dharura. Mhandisi wao alifika ndani ya masaa 2 na tukarudishwa mtandaoni siku hiyo hiyo. Kitaalamu sana!"',
     'testimonials.1.name': 'John Kamau',
     'testimonials.1.role': 'Meneja wa Vifaa, Thika Manufacturing Ltd.',
@@ -285,10 +377,16 @@ const translations = {
     
     // Contact
     'contact.title': 'Wasiliana Nasi',
+    'contact.subtitle': 'Tutume ujumbe na tutajibu ndani ya masaa 24',
     'contact.form.name': 'Jina',
     'contact.form.email': 'Barua Pepe',
     'contact.form.phone': 'Simu',
     'contact.form.company': 'Kampuni',
+    'contact.form.requestType': 'Aina ya Ombi',
+    'contact.form.requestType.quote': 'Nukuu',
+    'contact.form.requestType.service': 'Kuhudumia Kitabu',
+    'contact.form.requestType.parts': 'Uchunguzi wa Vipuri',
+    'contact.form.requestType.general': 'Jumla',
     'contact.form.type': 'Aina ya Ombi',
     'contact.form.type.quote': 'Nukuu',
     'contact.form.type.service': 'Kuhudumia Kitabu',
@@ -301,25 +399,31 @@ const translations = {
     'contact.form.contact.email': 'Barua Pepe',
     'contact.form.contact.whatsapp': 'WhatsApp',
     'contact.form.submit': 'Tuma Ombi',
+    'contact.form.submitting': 'Inatuma...',
+    'contact.form.success': 'Asante! Tutajibu ndani ya masaa 24.',
     'contact.info.title': 'Taarifa za Mawasiliano',
     'contact.info.address': 'S.L.P 4529-01002 Madaraka, Thika, Kenya',
     'contact.info.phone': '+254 718 234 222',
     'contact.info.email': 'sales@wingsengineeringservices.com',
+    'contact.info.hours': 'Jum-Iju 8AM-6PM, Jum 9AM-2PM',
     'contact.info.hours.title': 'Saa za Biashara',
     'contact.info.hours.weekdays': 'Jumatatu-Ijumaa 8AM-6PM',
     'contact.info.hours.saturday': 'Jumamosi 9AM-2PM',
     'contact.info.hours.sunday': 'Jumapili Imefungwa',
+    'contact.info.whatsapp': 'Ongea kwa WhatsApp',
     'contact.success': 'Asante! Tutajibu ndani ya masaa 24.',
     'contact.error': 'Tafadhali jaza sehemu zote zinazohitajika kwa usahihi.',
     
     // Footer
     'footer.tagline': 'Kuweka Nguvu ya Viwanda ya Afrika Mashariki',
     'footer.description': 'Mshirika wako wa kuaminika kwa jenereta, injini, na ufumbuzi wa nguvu ya viwanda nchini Kenya.',
+    'footer.quickLinks': 'Viungo vya Haraka',
     'footer.quicklinks': 'Viungo vya Haraka',
     'footer.contact': 'Mawasiliano',
     'footer.privacy': 'Sera ya Faragha',
     'footer.terms': 'Sheria na Masharti',
     'footer.copyright': '© 2026 Wings Engineering Services Ltd. Haki zote zimehifadhiwa.',
+    'footer.madeIn': 'Imejengwa kwa ❤️ nchini Kenya',
     'footer.built': 'Imejengwa kwa ❤️ nchini Kenya',
     
     // Modals
@@ -346,6 +450,8 @@ const translations = {
     
     // WhatsApp
     'whatsapp.message': 'Habari Wings Engineering, Nahitaji usaidizi kuhusu...',
+    'whatsapp.prefilledMessage': 'Habari Wings Engineering, Nahitaji usaidizi kuhusu...',
+    'whatsapp.tooltip': 'Ongea kwa WhatsApp',
     
     // Validation
     'validation.required': 'Sehemu hii inahitajika',
@@ -366,18 +472,8 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   }, [language])
 
   const t = (key: string): string => {
-    const keys = key.split('.')
-    let value: any = translations[language]
-    
-    for (const k of keys) {
-      if (value && typeof value === 'object' && k in value) {
-        value = value[k]
-      } else {
-        return key // Fallback to key if translation not found
-      }
-    }
-    
-    return value || key
+    const translationSet = translations[language] as Record<string, string>
+    return translationSet[key] || key
   }
 
   return (
