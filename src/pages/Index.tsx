@@ -27,7 +27,7 @@ import Portfolio from '@/components/landing/Portifolio';
 import Testimonials from '@/components/landing/Testimonials';
 import Contact from '@/components/landing/Contact';
 import Footer from '@/components/landing/Footer';
-import WhatsAppButton from '@/components/landing/WhatsAppButton';
+import FloatingButtons from '@/components/landing/FloatingButtons';
 
 // Supabase Client (optional - gracefully handles missing env vars)
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
@@ -1154,28 +1154,8 @@ const Index = () => {
       {/* Footer */}
       <Footer />
 
-      {/* WhatsApp Button */}
-      <WhatsAppButton />
-
-      {/* Back to Top Button */}
-      {showBackToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 md:bottom-6 md:right-32 bg-blue-600 dark:bg-blue-500 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 dark:hover:bg-blue-600 transition-all z-40"
-          aria-label="Back to top"
-        >
-          <ArrowUp size={24} />
-        </button>
-      )}
-
-      {/* Quick Navigation Toggle */}
-      <button
-        onClick={() => setShowQuickNav(!showQuickNav)}
-        className="fixed bottom-20 right-6 md:hidden bg-blue-600 dark:bg-blue-500 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors z-40"
-        aria-label="Quick navigation"
-      >
-        <NavigationIcon size={24} />
-      </button>
+      {/* Floating Buttons (WhatsApp, Phone, Back to Top) */}
+      <FloatingButtons />
 
       {/* Quote Request Modal */}
       <AnimatePresence>

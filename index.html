@@ -23,6 +23,25 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Content Security Policy - Allow Google Maps and other necessary resources -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://maps.gstatic.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: blob: https: http:;
+      frame-src 'self' https://www.google.com https://maps.google.com https://www.google.com/maps;
+      connect-src 'self' https://*.supabase.co wss://*.supabase.co https://maps.googleapis.com;
+      media-src 'self';
+      object-src 'none';
+    " />
+
+    <!-- Permissions Policy -->
+    <meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=()" />
+
+    <!-- Referrer Policy -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <!-- Open Graph (Facebook / WhatsApp / LinkedIn / Telegram) -->
     <meta property="og:site_name" content="Wings Engineering Limited" />
     <meta property="og:title" content="Wings Engineering Limited" />
@@ -60,6 +79,84 @@
 
     <!-- Telegram -->
     <meta property="telegram:channel" content="@WingsEngineering" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Wings Engineering Services Ltd",
+      "image": "https://wings.lovable.app/apple-touch-icon.png",
+      "telephone": "+254718234222",
+      "email": "sales@wingsengineeringservices.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "P.O. Box 4529-01002 Madaraka",
+        "addressLocality": "Thika",
+        "addressRegion": "Nairobi County",
+        "postalCode": "01002",
+        "addressCountry": "KE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-1.033",
+        "longitude": "37.069"
+      },
+      "url": "https://wings.lovable.app",
+      "priceRange": "Contact for quote",
+      "description": "Professional mechanical & electrical engineering solutions across East Africa. Generators, engines, spare parts, installation, and maintenance services.",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/WingsEngineering",
+        "https://www.instagram.com/WingsEngineering",
+        "https://www.linkedin.com/company/wings-engineering"
+      ],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "-1.033",
+          "longitude": "37.069"
+        },
+        "geoRadius": "500000"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Spare Parts & Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Lister Petter Spare Parts",
+              "description": "Genuine OEM spare parts for Lister Petter engines"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Generator Maintenance",
+              "description": "Professional generator maintenance and repair services"
+            }
+          }
+        ]
+      }
+    }
+    </script>
   </head>
 
   <body>
