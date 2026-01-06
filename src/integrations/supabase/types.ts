@@ -14,7 +14,172 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_submissions: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string | null
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          product_id: string | null
+          status: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          product_id?: string | null
+          status?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          product_id?: string | null
+          status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contact_submissions_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "product_catalog"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_catalog: {
+        Row: {
+          additional_images: string[] | null
+          brand: string
+          category: string
+          compatible_engines: string[] | null
+          created_at: string
+          currency: string | null
+          full_description: string | null
+          id: string
+          min_order_quantity: number | null
+          model: string | null
+          name: string
+          part_number: string | null
+          price: number | null
+          primary_image_url: string | null
+          short_description: string | null
+          specifications: Json | null
+          status: string | null
+          stock_quantity: number | null
+          tags: string[] | null
+          updated_at: string
+        }
+        Insert: {
+          additional_images?: string[] | null
+          brand: string
+          category: string
+          compatible_engines?: string[] | null
+          created_at?: string
+          currency?: string | null
+          full_description?: string | null
+          id?: string
+          min_order_quantity?: number | null
+          model?: string | null
+          name: string
+          part_number?: string | null
+          price?: number | null
+          primary_image_url?: string | null
+          short_description?: string | null
+          specifications?: Json | null
+          status?: string | null
+          stock_quantity?: number | null
+          tags?: string[] | null
+          updated_at?: string
+        }
+        Update: {
+          additional_images?: string[] | null
+          brand?: string
+          category?: string
+          compatible_engines?: string[] | null
+          created_at?: string
+          currency?: string | null
+          full_description?: string | null
+          id?: string
+          min_order_quantity?: number | null
+          model?: string | null
+          name?: string
+          part_number?: string | null
+          price?: number | null
+          primary_image_url?: string | null
+          short_description?: string | null
+          specifications?: Json | null
+          status?: string | null
+          stock_quantity?: number | null
+          tags?: string[] | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      quotes: {
+        Row: {
+          company: string | null
+          created_at: string
+          customer_email: string | null
+          customer_name: string
+          customer_phone: string | null
+          id: string
+          message: string | null
+          part_number: string | null
+          product_id: string | null
+          product_name: string | null
+          quantity: number | null
+          status: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          customer_email?: string | null
+          customer_name: string
+          customer_phone?: string | null
+          id?: string
+          message?: string | null
+          part_number?: string | null
+          product_id?: string | null
+          product_name?: string | null
+          quantity?: number | null
+          status?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          customer_email?: string | null
+          customer_name?: string
+          customer_phone?: string | null
+          id?: string
+          message?: string | null
+          part_number?: string | null
+          product_id?: string | null
+          product_name?: string | null
+          quantity?: number | null
+          status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quotes_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "product_catalog"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
