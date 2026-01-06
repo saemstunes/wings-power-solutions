@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Settings } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { Menu, X, Cog } from "lucide-react";
 
 const Navigation = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -51,13 +52,13 @@ const Navigation = () => {
             }}
             className="flex items-center gap-2"
           >
-            <Settings className="h-8 w-8 text-primary" />
+            <Cog className="h-8 w-8 text-primary" />
             <div className="flex flex-col">
               <span className="font-bold text-lg text-foreground leading-tight">
-                Wings Engineering
+                Wings Spare Parts
               </span>
               <span className="text-xs text-muted-foreground hidden sm:block">
-                Services Ltd.
+                Genuine Engine Parts
               </span>
             </div>
           </a>
@@ -79,8 +80,9 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Language Toggle & CTA */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Theme Toggle, Language Toggle & CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <button
               onClick={() => setLanguage(language === "en" ? "sw" : "en")}
               className="flex items-center gap-1 px-3 py-1.5 rounded-md border border-border hover:bg-accent transition-colors"
@@ -127,7 +129,8 @@ const Navigation = () => {
                   {link.label}
                 </a>
               ))}
-              <div className="flex items-center gap-4 px-4 pt-4 border-t border-border">
+              <div className="flex items-center gap-3 px-4 pt-4 border-t border-border">
+                <ThemeToggle />
                 <button
                   onClick={() => setLanguage(language === "en" ? "sw" : "en")}
                   className="flex items-center gap-1 px-3 py-1.5 rounded-md border border-border"
