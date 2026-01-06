@@ -21,9 +21,9 @@ const translations = {
     'nav.language': 'Language',
     
     // Hero
-    'hero.headline': 'Wings Engineering Services Ltd – Reliable Mechanical & Electrical Engineering in Thika',
-    'hero.subheadline': 'Generators • Engines • Spare Parts • Installation • Maintenance',
-    'hero.description': 'Trusted technical solutions for industry and commerce in Thika and Nairobi County. Lister Petter specialists with genuine OEM parts.',
+    'hero.headline': 'Wings Spare Parts – Genuine Engine & Generator Parts in Kenya',
+    'hero.subheadline': 'Lister Petter • Perkins • Deep Sea Electronics • OEM Quality',
+    'hero.description': 'Your trusted source for genuine diesel engine spare parts, generator components, and industrial power accessories. Fast delivery across Thika and Nairobi County.',
     'hero.cta1': 'Get a Quote',
     'hero.cta2': 'Call +254 718 234 222',
     'hero.cta.quote': 'Get a Quote',
@@ -245,9 +245,9 @@ const translations = {
     'nav.language': 'Lugha',
     
     // Hero
-    'hero.headline': 'Wings Engineering Services Ltd – Huduma za Uhandisi wa Umeme na Mitambo Thika',
-    'hero.subheadline': 'Jenereta • Injini • Vipuri • Usakinishaji • Matengenezo',
-    'hero.description': 'Ufumbuzi wa kiufundi unaoaminika kwa viwanda na biashara Thika na Kaunti ya Nairobi. Wataalamu wa Lister Petter wenye vipuri halisi vya OEM.',
+    'hero.headline': 'Wings Spare Parts – Vipuri Halisi vya Injini na Jenereta Kenya',
+    'hero.subheadline': 'Lister Petter • Perkins • Deep Sea Electronics • Ubora wa OEM',
+    'hero.description': 'Chanzo chako kinachotegemewa cha vipuri halisi vya injini ya dizeli, vifaa vya jenereta, na vifaa vya nguvu za viwanda. Utoaji wa haraka katika Thika na Kaunti ya Nairobi.',
     'hero.cta1': 'Pata Nukuu',
     'hero.cta2': 'Piga +254 718 234 222',
     'hero.cta.quote': 'Pata Nukuu',
